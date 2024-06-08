@@ -48,6 +48,139 @@ body {
     margin-bottom: 4vh; /* 부모 요소 높이의 약 27%만큼 아래쪽 마진 설정 */
 }
 
+/* 추가된 스타일: overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* 초기에는 표시되지 않음 */
+    z-index: 1;
+}
+
+/* 추가된 스타일: sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -500vw; /* 초기에는 화면 밖에 위치 */
+    width: 200px;
+    height: 100%;
+    background: #FFF;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    transition: right 0.3s; /* 부드러운 애니메이션 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+/* 사이드바 상단 스타일 */
+.sidebar-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding: 10px 0; /* 상단 패딩 추가 */
+}
+
+
+/* 사이드바 로고 컨테이너 */
+.sidebar-logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo {
+    width: 50px; /* 사이드바 로고의 크기를 별도로 설정 */
+    margin-top: 20px; /* 로고 아래로 이동 */
+}
+
+.close-icon {
+    position: absolute;
+    left: 5px; /* 왼쪽 모서리에 위치 */
+    cursor: pointer;
+    font-size: 15px; /* 아이콘 크기 조정 */
+    color: #454545;
+    font-weight: lighter; /* 얇게 하기 위해 font-weight 설정 */
+    line-height: 1; /* 아이콘 크기 조정 */
+}
+
+/* 추가된 스타일: 검색창 */
+.sidebar .search-input {
+    width: 80%;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin-top: 20px; /* 검색창 아래로 이동 */
+    margin-bottom: 0; /* 아래 마진 삭제 */
+}
+
+/* 추가된 스타일: 검색 결과 영역 */
+.sidebar .search-results {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.contact-text {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'NanumSquareLight'; /* light 폰트 스타일 */
+    font-size: 12px;
+}
+
+.contact-text a {
+    color: #FFD700; /* 진한 노란색 */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* 팝업 스타일 추가 */
+.popup {
+    position: fixed;
+    top: 8.2%; /* 팝업 세로 길이를 늘리기 위해 위쪽에 조금만 띄움 */
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 80%;
+    max-width: 400px;
+    height: 80%; /* 세로 길이 늘림 */
+    background: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    display: none; /* 초기에는 표시되지 않음 */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto; /* 내용이 많을 때 스크롤 가능 */
+}
+
+.popup-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* 요소들을 왼쪽 정렬 */
+    align-items: center;
+}
+
+.popup-logo {
+    width: 80px; /* 팝업 로고의 크기 설정 */
+}
+
+.popup-content {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 요소들을 가운데 정렬 */
+}
+
 .info_icon {
     height: 45%; /* Info 아이콘의 높이를 부모 높이의 20%로 설정 */
     margin-top: 3vh; /* 부모 요소 높이의 5%만큼 위쪽 마진 설정 */
@@ -58,7 +191,6 @@ body {
     height: 40%; /* Sidebar 아이콘의 높이를 부모 높이의 15%로 설정 */
     margin-top: 2.5vh; /* 부모 요소 높이의 5%만큼 위쪽 마진 설정 */
     margin-bottom: 3.3vh; /* 부모 요소 높이의 약 22%만큼 아래쪽 마진 설정 */
-    margin-right: 5px; /* 오른쪽 마진을 5px로 설정 */
 }
 
 
@@ -90,7 +222,7 @@ body {
     position: absolute; /* 절대 위치로 설정 */
     top: 1vh; /* 상단에서 10px 떨어진 위치 */
     left: 5vw; /* 왼쪽에서 10px 떨어진 위치 */
-    font-size: 2vh;
+    font-size: 2.2vh;
 }
 
 .selector {
@@ -117,7 +249,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 32vh;
+    height: 30vh;
     background-color: #FFFFFF;
     padding: 10px; /* 내부 패딩을 0px로 설정 */
 }
@@ -151,13 +283,13 @@ body {
 .selector-map {
     width: 90%; /* 원하는 너비 설정 */
     height: 90%; /* 원하는 높이 설정 */
-    margin-top: 1.5vh; /* 위쪽 마진을 늘림 */
-    margin-bottom: 1vh; /* 아래쪽 마진을 줄임 */
+    margin-top: 2vh; /* 위쪽 마진을 늘림 */
+    margin-bottom: 2vh; /* 아래쪽 마진을 줄임 */
 }
 
 .map_section {
     position: relative; /* 자식 요소의 절대 위치 기준을 설정 */
-    height: 45vh;
+    height: 47vh;
     background-color: #B1D6B3;
 }
 

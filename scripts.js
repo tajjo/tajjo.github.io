@@ -40,3 +40,42 @@ function selectText(element) {
     // 클릭한 텍스트 버튼만 선택
     element.classList.add('selected');
 }
+
+function openSidebar() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('sidebar').style.right = '0';
+}
+
+function closeSidebar() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('sidebar').style.right = '-500vw';
+}
+
+
+
+// 새로고침 함수
+function refreshPage() {
+    location.reload();
+}
+
+// 로고 클릭 이벤트 리스너 추가
+document.getElementById('mainLogo').addEventListener('click', refreshPage);
+
+
+// 추가된 함수: 팝업 열기
+function openPopup() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'flex';
+}
+
+// 추가된 함수: 팝업 닫기
+function closePopup() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popup').style.display = 'none';
+}
+
+// 기본 선택 함수
+window.onload = function() {
+    document.getElementById('buttonMinSteps').classList.add('selected');
+    document.getElementById('textButtonClassroom').classList.add('selected');
+}

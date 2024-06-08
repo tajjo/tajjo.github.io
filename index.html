@@ -4,19 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>타조</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 </head>
 <body>
     <div class="box app_bar">
-        <img src="info.png" alt="Info" class="icon info_icon">
-        <img src="tajo_logo.png" alt="Tajo Logo" class="logo">
-        <img src="sidebar.png" alt="Sidebar" class="icon sidebar_icon">
+        <img src="info.png" alt="Info" class="icon info_icon" onclick="openPopup()">
+        <img src="tajo_logo.png" alt="Tajo Logo" class="logo" id="mainLogo">
+        <img src="sidebar.png" alt="Sidebar" class="icon sidebar_icon" onclick="openSidebar()">
     </div>
     <div class="box weather_bar">
         <div class="rect"></div>
     </div>
+    <!-- 추가된 요소: overlay -->
+    
+    <div id="overlay" class="overlay" onclick="closeSidebar(); closePopup();"></div>
+        
+    <!-- 추가된 요소: sidebar -->
+    <div id="sidebar" class="sidebar">
+        <!-- 사이드바 상단에 X 아이콘 추가 -->
+        <div class="sidebar-header">
+            <span class="close-icon" onclick="closeSidebar()">&#10005;</span> <!-- X 문자 수정 -->
+        </div>
+        <img src="tajo_logo.png" alt="Tajo Logo" class="sidebar-logo">
+        <input type="text" placeholder="Search..." class="search-input">
+        <p class="contact-text">
+            문의가 있으시면 <a href="mailto:hch2454@khu.ac.kr">여기를 누르세요</a>
+        </p>
+        <div class="search-results">
+            <!-- 검색 결과가 여기에 나열됩니다. -->
+        </div>
+
+    </div>
+
     <div class="box time_display">
         <div class="title">언제부터 사용하실 건가요?</div> 
         <div class="selector selector-time">
@@ -28,6 +52,17 @@
               </div>
         </div>
     </div>
+
+    <div id="popup" class="popup">
+        <!-- 팝업 상단에 X 아이콘 추가 -->
+        <div class="popup-header">
+            <span class="close-icon" onclick="closePopup()">&#10005;</span>
+        </div>
+        <div class="popup-content">
+            <p>가이드라인</p>
+        </div>
+    </div>
+
     </div>
     <div class="box map_section">
         <div class="title">어디를 찾아볼까요?</div> 
@@ -45,19 +80,19 @@
         
         <div class="button-container">
             <div>
-                <div class="button" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonMinSteps" onclick="selectButton(this)"></div>
                 <div class="label">최소 걸음</div>
             </div>
             <div>
-                <div class="button" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonMaxTime" onclick="selectButton(this)"></div>
                 <div class="label">최대 시간</div>
             </div>
             <div>
-                <div class="button" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonUtility" onclick="selectButton(this)"></div>
                 <div class="label">유틸리티</div>
             </div>
             <div>
-                <div class="button" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonSpaceSize" onclick="selectButton(this)"></div>
                 <div class="label">공간크기</div>
             </div>
         </div>
@@ -65,8 +100,8 @@
     <div class="box rest_area">
         <div class="box algorithm_selection">
             <div class="text-container">
-                <span class="text-button" onclick="selectText(this)">강의실</span>
-                <span class="text-button" onclick="selectText(this)">휴게공간</span>
+                <span class="text-button" id="textButtonClassroom" onclick="selectText(this)">강의실</span>
+                <span class="text-button"  id="textButtonRestArea" onclick="selectText(this)">휴게공간</span>
             </div>
         </div>
     </div>
