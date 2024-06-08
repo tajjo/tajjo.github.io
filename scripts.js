@@ -43,12 +43,12 @@ function selectText(element) {
 
 function openSidebar() {
     document.getElementById('overlay').style.display = 'block';
-    document.getElementById('sidebar').style.right = '0';
+    document.getElementById('sidebar').classList.add('open');
 }
 
 function closeSidebar() {
     document.getElementById('overlay').style.display = 'none';
-    document.getElementById('sidebar').style.right = '-500vw';
+    document.getElementById('sidebar').classList.remove('open');
 }
 
 
