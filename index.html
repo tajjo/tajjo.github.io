@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타조</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="box app_bar">
+        <img src="info.png" alt="Info" class="icon info_icon">
+        <img src="tajo_logo.png" alt="Tajo Logo" class="logo">
+        <img src="sidebar.png" alt="Sidebar" class="icon sidebar_icon">
+    </div>
+    <div class="box weather_bar">
+        <div class="rect"></div>
+    </div>
+    <div class="box time_display">
+        <div class="title">언제부터 사용하실 건가요?</div> 
+        <div class="selector selector-time">
+            <div class="clock">
+                <div class="day" id="day">0</div>
+                <div class="hour" id="hour">00</div>
+                <div class="colon">:</div>
+                <div class="minute" id="minute">00</div>
+              </div>
+        </div>
+    </div>
+    </div>
+    <div class="box map_section">
+        <div class="title">어디를 찾아볼까요?</div> 
+        <div class="selector selector-map">
+            <img src="map.svg" class="my-svg" alt="Map">
+        </div>
+    </div>
+    <div class="box down_section">
+        <div class="scroll"></div>
+    </div>
+    <div class="box select_prompt">
+        <div class="rect center-text">원하는 공간 유형을 고르세요</div>
+    </div>
+    <div class="box algorithm_selection">
+        
+        <div class="button-container">
+            <div>
+                <div class="button" onclick="selectButton(this)"></div>
+                <div class="label">최소 걸음</div>
+            </div>
+            <div>
+                <div class="button" onclick="selectButton(this)"></div>
+                <div class="label">최대 시간</div>
+            </div>
+            <div>
+                <div class="button" onclick="selectButton(this)"></div>
+                <div class="label">유틸리티</div>
+            </div>
+            <div>
+                <div class="button" onclick="selectButton(this)"></div>
+                <div class="label">공간크기</div>
+            </div>
+        </div>
+    </div>
+    <div class="box rest_area">
+        <div class="box algorithm_selection">
+            <div class="text-container">
+                <span class="text-button" onclick="selectText(this)">강의실</span>
+                <span class="text-button" onclick="selectText(this)">휴게공간</span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box dynamic_content">Box 15 - 1</div>
+        <div class="box dynamic_content">Box 15 - 2</div>
+        <div class="box dynamic_content">Box 15 - 3</div>
+        <!-- 여기에 dynamic_content 요소를 동적으로 추가 -->
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
