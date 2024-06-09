@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const dayElement = document.getElementById('day');
+    const ampmElement = document.getElementById('ampm');
     const hourElement = document.getElementById('hour');
     const minuteElement = document.getElementById('minute');
 
@@ -15,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
 
         dayElement.textContent = day;
-        hourElement.textContent = ampm + ' ' + displayHours  ;
+        ampmElement.textContent = ampm;
+        hourElement.textContent = displayHours  ;
         minuteElement.textContent = displayMinutes;
     }
 

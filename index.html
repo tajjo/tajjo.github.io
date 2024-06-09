@@ -18,7 +18,9 @@
         <img src="sidebar.png" alt="Sidebar" class="icon sidebar_icon" onclick="openSidebar()">
     </div>
     <div class="box weather_bar">
-        <div class="rect"></div>
+        <div class="rect">
+            <div id="display"></div> <!-- 여기에 JS가 접근합니다 -->
+        </div>
     </div>
     <!-- 추가된 요소: overlay -->
     
@@ -45,11 +47,12 @@
         <div class="title">언제부터 사용하실 건가요?</div> 
         <div class="selector selector-time">
             <div class="clock">
-                <div class="day" id="day">0</div>
-                <div class="hour" id="hour">00</div>
+                <div class="day number-box" id="day">월</div>
+                <div class="ampm number-box" id="ampm">AM</div>
+                <div class="hour number-box" id="hour">00</div>
                 <div class="colon">:</div>
-                <div class="minute" id="minute">00</div>
-              </div>
+                <div class="minute number-box" id="minute">00</div>
+            </div>
         </div>
     </div>
 
@@ -112,5 +115,7 @@
         <!-- 여기에 dynamic_content 요소를 동적으로 추가 -->
     </div>
     <script src="scripts.js"></script>
+    <script src="api.js"></script>
+    <script src="drag.js"></script>
 </body>
 </html>

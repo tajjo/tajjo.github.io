@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'LABDigital';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.ttf') format("truetype");
+    font-display: swap;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -207,6 +219,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2vh;
 }
 
 .rect {
@@ -220,6 +233,7 @@ body {
     justify-content: flex-end; /* 가로 방향 오른쪽 정렬 */
     align-items: center; /* 세로 방향 가운데 정렬 */
     text-align: right; /* 기본 텍스트 정렬을 오른쪽으로 설정 */
+    white-space: pre; /* 공백을 유지하도록 설정 */
 }
 
 
@@ -261,14 +275,31 @@ body {
 
 .clock {
     display: flex;
+    align-items: center; /* 세로 기준으로 가운데 정렬 */
+    justify-content: center; /* 가로 기준으로 가운데 정렬 */
     text-align: center;
-    font-size: 2rem;
+    font-size: 8vh;
+    font-family: 'LABDigital', sans-serif;
+    gap: 20px; /* 자식 요소 간의 간격 설정 */
 }
 
-.day {
-    margin-bottom: 20px;
+.number-box {
+    font-size: 6vh;
+    cursor: grab; /* 기본 커서 설정 */
+    /* user-select: none; Prevent text selection during drag */
+    height: 200px;
 }
 
+/* .ampm {
+    font-size: 5vh;
+} */
+.day, .ampm, .hour, .minute {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab; /* 드래그 가능한 커서 설정 */
+    /* user-select: none; Prevent text selection during drag */
+}
 
 .colon {
     animation: blink 1s steps(1) infinite;
