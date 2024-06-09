@@ -5,12 +5,12 @@ let result3="";
 const API_KEY = '301ce55e90da3e3956f6c8a5c9eb2281';  // 여기에 실제 API 키를 입력하세요
 // 건물 위치 데이터
 const buildings = [
-    { name: "공대", lat: 37.246415, lon: 127.080799 },
-    { name: "외대", lat: 37.245248, lon: 127.077722 },
-    { name: "체대", lat: 37.244354, lon: 127.080590 },
-    { name: "국제대", lat: 37.239753, lon: 127.081330 },
-    { name: "전정대", lat: 37.239705, lon: 127.083443 },
-    { name: "예대", lat: 37.241546, lon: 127.084500 }
+    { name: "공과대학", lat: 37.246415, lon: 127.080799 },
+    { name: "외국어대학", lat: 37.245248, lon: 127.077722 },
+    { name: "체육대학", lat: 37.244354, lon: 127.080590 },
+    { name: "국제대학", lat: 37.239753, lon: 127.081330 },
+    { name: "전자정보대학", lat: 37.239705, lon: 127.083443 },
+    { name: "예술디자인대학", lat: 37.241546, lon: 127.084500 }
 ];
 
 // 두 좌표 간의 거리를 계산하는 함수 (Haversine formula 사용)
@@ -162,6 +162,8 @@ getCurrentLocation()
     .then(location => {
         console.log("Location array:", location);
         result3=location[2];
+        var init_locationResult = document.getElementById('location-result');
+        init_locationResult.innerText = `선택된 위치: ${result3}`;
         getWeather(location[0], location[1])
             .then(weatherData => {
                 console.log("Weather data array:", weatherData);

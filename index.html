@@ -68,10 +68,13 @@
 
     </div>
     <div class="box map_section">
-        <div class="title">어디를 찾아볼까요?</div> 
-        <div class="selector selector-map">
-            <img src="map.svg" class="my-svg" alt="Map">
+        <div class="title">탐색을 원하는 대학을 클릭하세요</div> 
+        <div class="selector selector-map" id="map-container">
+            <img src="map.svg" id="map-svg" class="my-svg" alt="Map">
+            <img src="point.png" id="pointer-img" class="pointer-img" alt="Pointer" style="position:absolute; display:none; width: 25px; height: 30px;">
+
         </div>
+        <div id="location-result" class="corner-text">위치 권한을 허용해주세요</div>
     </div>
     <div class="box down_section">
         <div class="scroll"></div>
@@ -83,19 +86,27 @@
         
         <div class="button-container">
             <div>
-                <div class="button" id="buttonMinSteps" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonMinSteps" onclick="selectButton(this)">
+                    <img src="min_steps.png" alt="최소 걸음">
+                </div>
                 <div class="label">최소 걸음</div>
             </div>
             <div>
-                <div class="button" id="buttonMaxTime" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonMaxTime" onclick="selectButton(this)">
+                    <img src="max_time.png" alt="최대 시간">
+                </div>
                 <div class="label">최대 시간</div>
             </div>
             <div>
-                <div class="button" id="buttonUtility" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonUtility" onclick="selectButton(this)">
+                    <img src="utility.png" alt="유틸리티">
+                </div>
                 <div class="label">유틸리티</div>
             </div>
             <div>
-                <div class="button" id="buttonSpaceSize" onclick="selectButton(this)"></div>
+                <div class="button" id="buttonSpaceSize" onclick="selectButton(this)">
+                    <img src="space_size.png" alt="공간크기">
+                </div>
                 <div class="label">공간크기</div>
             </div>
         </div>
@@ -117,5 +128,6 @@
     <script src="scripts.js"></script>
     <script src="api.js"></script>
     <script src="drag.js"></script>
+    <script src="map.js"></script>
 </body>
 </html>

@@ -333,6 +333,23 @@ body {
     height: 100%; /* 부모 요소의 높이에 꽉 차게 설정 */
     width: auto; /* 비율을 유지하면서 너비를 자동으로 설정 */
 }
+.point-img {
+    width: 20px; /* 적절한 크기로 조정하세요 */
+    height: 20px; /* 적절한 크기로 조정하세요 */
+    pointer-events: none; /* 이미지는 클릭할 수 없도록 설정 */
+}
+
+
+.corner-text {
+    position: absolute;
+    right: 10px; /* 오른쪽 여백 조정 */
+    bottom: 10px; /* 아래쪽 여백 조정 */
+    background-color: rgba(255, 255, 255, 0.8); /* 배경색 조정, 필요시 변경 */
+    padding: 5px; /* 패딩 조정 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    font-size: 2.2vh; /* 텍스트 크기 조정 */
+}
 
 .down_section {
     height: 14vh;
@@ -432,6 +449,12 @@ body {
 .button.selected {
     border-color: #C63B3B; /* 선택된 버튼의 붉은 테두리 색상 */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 음영 효과 */
+}
+
+.button img {
+    width: 60%; /* 버튼 크기에 맞추기 위해 조정 */
+    height: 60%; /* 버튼 크기에 맞추기 위해 조정 */
+    object-fit: contain; /* 이미지가 버튼 크기에 맞게 조정 */
 }
 
 .label {
