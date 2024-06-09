@@ -9,6 +9,7 @@
     <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH/4+6GcNEq5c0LZnOg5u7gZug3B8s7x8bRMDpEfi3mRC6U8J5YW+0NEHh5ieph0mR2rFJ5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
@@ -45,6 +46,20 @@
 
     <div class="box time_display">
         <div class="title">언제부터 사용하실 건가요?</div> 
+        <div class="rectangle" id="rect1">
+            <div class="sub-rectangle" id="sub-rect1">
+                <img src="up.png" alt="Image 1" id="img1">
+            </div>
+            <div class="sub-rectangle" id="sub-rect2">
+                <img src="up.png" alt="Image 2" id="img2">
+            </div>
+            <div class="sub-rectangle" id="sub-rect3">
+                <img src="up.png" alt="Image 3" id="img3">
+            </div>
+            <div class="sub-rectangle" id="sub-rect4">
+                <img src="up.png" alt="Image 4" id="img4">
+            </div>
+        </div>
         <div class="selector selector-time">
             <div class="clock">
                 <div class="day number-box" id="day">월</div>
@@ -54,15 +69,43 @@
                 <div class="minute number-box" id="minute">00</div>
             </div>
         </div>
+        <div class="rectangle" id="rect2">
+            <div class="sub-rectangle" id="sub-rect5">
+                <img src="down.png" alt="Image 1" id="img5">
+            </div>
+            <div class="sub-rectangle" id="sub-rect6">
+                <img src="down.png" alt="Image 2" id="img6">
+            </div>
+            <div class="sub-rectangle" id="sub-rect7">
+                <img src="down.png" alt="Image 3" id="img7">
+            </div>
+            <div class="sub-rectangle" id="sub-rect8">
+                <img src="down.png" alt="Image 4" id="img8">
+            </div>
+        </div>
     </div>
 
     <div id="popup" class="popup">
-        <!-- 팝업 상단에 X 아이콘 추가 -->
         <div class="popup-header">
             <span class="close-icon" onclick="closePopup()">&#10005;</span>
         </div>
         <div class="popup-content">
             <p>가이드라인</p>
+            <div class="slider" id="slider">
+                <div class="slides">
+                    <div class="slide"><img src="image1.jpg" alt="Slide 1"></div>
+                    <div class="slide"><img src="image2.jpg" alt="Slide 2"></div>
+                    <div class="slide"><img src="image3.jpg" alt="Slide 3"></div>
+                    <!-- Add more slides as needed -->
+                </div>
+            </div>
+            <div class="navigation">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination dots will be dynamically generated -->
+            </div>
         </div>
     </div>
 
@@ -129,5 +172,10 @@
     <script src="api.js"></script>
     <script src="drag.js"></script>
     <script src="map.js"></script>
+    <script src="updown.js"></script>
+    <script src="slide.js"></script>
+    <footer class="footer">
+        <p>&copy; 2024 <a href="https://festring.github.io" target="_blank">festring</a></p>
+    </footer>
 </body>
 </html>

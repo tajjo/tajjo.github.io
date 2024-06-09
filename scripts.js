@@ -64,17 +64,7 @@ function refreshPage() {
 document.getElementById('mainLogo').addEventListener('click', refreshPage);
 
 
-// 추가된 함수: 팝업 열기
-function openPopup() {
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('popup').style.display = 'flex';
-}
 
-// 추가된 함수: 팝업 닫기
-function closePopup() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('popup').style.display = 'none';
-}
 
 // 기본 선택 함수
 window.onload = function() {
