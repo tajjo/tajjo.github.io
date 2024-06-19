@@ -164,6 +164,9 @@ getCurrentLocation()
         result3=location[2];
         var init_locationResult = document.getElementById('location-result');
         init_locationResult.innerText = `선택된 위치: ${result3}`;
+        // 지정된 위치의 좌표를 찾아 클릭 이벤트를 트리거하는 함수 호출
+        triggerClickAndTouchOnMap(result3);
+
         getWeather(location[0], location[1])
             .then(weatherData => {
                 console.log("Weather data array:", weatherData);
@@ -178,4 +181,60 @@ getCurrentLocation()
         console.error(error);
     });
 
+
+// 좌표를 기반으로 클릭 및 터치 이벤트를 트리거하는 함수
+function triggerClickAndTouchOnMap(locationName) {
+    const location = locations[locationName];
+    if (!location) {
+        console.error("Invalid location:", locationName);
+        return;
+    }
+
+    const svgElement = document.getElementById('map-svg');
+    if (!svgElement) {
+        console.error("SVG element with id 'map-svg' not found");
+        return;
+    }
+
+    // SVG 상의 비율을 실제 좌표로 변환
+    const svgRect = svgElement.getBoundingClientRect();
+    const x = svgRect.left + svgRect.width * location.x;
+    const y = svgRect.top + svgRect.height * location.y;
+
+    // 클릭 이벤트 생성 및 트리거
+    const clickEvent = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+        clientX: x,
+        clientY: y
+    });
+    svgElement.dispatchEvent(clickEvent);
+
+    // 터치 이벤트 생성 및 트리거
+    const touchObj = new Touch({
+        identifier: Date.now(),
+        target: svgElement,
+        clientX: x,
+        clientY: y,
+        pageX: x,
+        pageY: y,
+        radiusX: 2.5,
+        radiusY: 2.5,
+        rotationAngle: 10,
+        force: 0.5
+    });
+
+    const touchEvent = new TouchEvent('touchstart', {
+        bubbles: true,
+        cancelable: true,
+        touches: [touchObj],
+        targetTouches: [],
+        changedTouches: [touchObj],
+        shiftKey: true
+    });
+    svgElement.dispatchEvent(touchEvent);
+    console.log('Click and touch events triggered at:', x, y);
+}
+    
 // 초기 데이터 업데이트 및 주기적 업데이트 설정

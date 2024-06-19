@@ -1,4 +1,4 @@
-const temp_days = ['월', '화', '수', '목', '금', '토', '일'];
+const temp_days = ['월', '화', '수', '목', '금'];
 let dayIndex = 0;
 let temp_ampmIndex = 0;
 let hour = 1;

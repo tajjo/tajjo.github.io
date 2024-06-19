@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateClock() {
         const now = new Date();
-        const days = ['일', '월', '화', '수', '목', '금', '토'];
+        const days = ['일', '월', '화', '수', '목', '금'];
         const day = days[now.getDay()];
         const hours = now.getHours();
         const minutes = now.getMinutes();

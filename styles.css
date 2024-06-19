@@ -598,13 +598,43 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background-color: #f7f7f7;
 }
 
 .dynamic_content {
-    height: 20vh;
-    background-color: #FFFFFF;
+    background-color: #F9D9CA;
+    border-radius: 10px;
+    margin: 20px 0;
+    height: 10vh;
+    width: 90%;
     color: black;
+    white-space: pre; /* 줄 바꿈을 무시하고 공백을 그대로 표시 */
+    font-family: 'NanumSquareLight'; /* light 폰트 스타일 */
+    font-size: 2.8vh;
+    margin-left: 5%; /* 좌측 여백 */
+    margin-right: 5%; /* 우측 여백 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 트랜지션 효과 */
 }
+
+.box.dynamic_content:hover, .box.dynamic_content:active {
+    transform: scale(1.05); /* 선택 시 확대 효과 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 선택 시 그림자 확대 */
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
 
 
 .footer {

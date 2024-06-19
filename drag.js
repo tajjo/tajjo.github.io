@@ -3,7 +3,7 @@ let startY;
 let isDragging = false;
 let currentElement = null;
 
-const days = ['월', '화', '수', '목', '금', '토', '일'];
+const days = ['월', '화', '수', '목', '금'];
 const ampm = ['AM', 'PM'];
 
 function handleDragStart(clientY, element) {
