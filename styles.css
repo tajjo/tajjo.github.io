@@ -610,7 +610,7 @@ body {
     color: black;
     white-space: pre; /* 줄 바꿈을 무시하고 공백을 그대로 표시 */
     font-family: 'NanumSquareLight'; /* light 폰트 스타일 */
-    font-size: 2vh;
+    font-size: 1.5vh;
     margin-left: 5%; /* 좌측 여백 */
     margin-right: 5%; /* 우측 여백 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
