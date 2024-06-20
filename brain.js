@@ -1,7 +1,7 @@
 let temp_result;
 let result_button = 0;
 function loadAndFindRooms(dayValue, buildingCode, timeValue, sortType) {
-    const csvFile = 'https://raw.githubusercontent.com/tajjo/tajjo.github.io/main/find_empty_room.csv';
+    const csvFile = 'https://raw.githubusercontent.com/tajjo/tajjo.github.io/main/final.csv';
     loadCSV(csvFile, function(data) {
         const availableRooms = findAvailableRooms(data, dayValue, buildingCode, timeValue);
         let results = findNextAvailableTime(availableRooms, timeValue, data[0]);
@@ -196,14 +196,15 @@ document.querySelectorAll('.text-container, .button-container, .selector-time, .
         let locationCode = '';
 
         if (locationText.includes('외국어') || locationText.includes('for')) {
-            locationCode += 'for ';
+            locationCode += 'fore ';
         }
         if (locationText.includes('공과') || locationText.includes('공')) {
             locationCode += 'eng ';
         }
-        if (locationText.includes('전자') || locationText.includes('elc')) {
-            locationCode += 'elc ';
+        if (locationText.includes('전자') || locationText.includes('sw')) {
+            locationCode += 'sw ';
         }
+        
 
         locationCode = locationCode.trim(); // 앞뒤 공백 제거
         // result_button 변수 선언
