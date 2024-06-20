@@ -31,6 +31,22 @@ function selectButton(button) {
     
     // 클릭한 버튼만 선택
     button.classList.add('selected');
+    var explanationText;
+    switch (button.id) {
+        case 'buttonMinSteps':
+            explanationText = ' " 1층을 기준으로 가장 가까운 강의실부터 나열합니다. "';
+            break;
+        case 'buttonMaxTime':
+            explanationText = ' " 설정한 시점 기준 가장 오래 쓸 수 있는 강의실부터 나열합니다. "';
+            break;
+        case 'buttonUtility':
+            explanationText = ' " 가장 편의 장비가 많은 강의실부터 나열합니다. "';
+            break;
+        case 'buttonSpaceSize':
+            explanationText = ' " 가장 넓은 강의실부터 나열합니다. "';
+            break;
+    }
+    document.getElementById('explanation').innerText = explanationText;
 }
 
 
